@@ -1,7 +1,7 @@
 #!/bin/bash
 
-import -window root /tmp/prtscrn.png
-convert /tmp/prtscrn.png -blur 0x5 /tmp/prtscrn.png
+import -window root /tmp/prntscrn.png
+convert /tmp/prntscrn.png -blur 0x5 /tmp/prntscrn.png
 
 i=0
 tot=$((`xrandr | grep -c '*'` - 1))
@@ -11,5 +11,5 @@ xrandr | grep '*' | cut -d ' ' -f4 | cut -d 'x' -f1 | while read -r line ; do
     convert -gravity Center -weight 700 -pointsize 60 -stroke white -strokewidth 1.5 -annotate $shift-0 "$(fortune | fold -s -50)"  /tmp/prntscrn.png /tmp/prntscrn.png
     i=$(($i + 1))
 done
-i3lock -i /tmp/prtscrn.png
-rm /tmp/prtscrn.png
+i3lock -i /tmp/prntscrn.png
+rm /tmp/prntscrn.png
